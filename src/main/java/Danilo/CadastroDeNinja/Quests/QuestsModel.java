@@ -2,11 +2,18 @@ package Danilo.CadastroDeNinja.Quests;
 
 import Danilo.CadastroDeNinja.Ninjas.Controller.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table (name = "tb_quests")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class QuestsModel {
 
     @Id
@@ -19,32 +26,5 @@ public class QuestsModel {
 
     @OneToMany
     private List<NinjaModel> ninjas;
-
-
-    public  QuestsModel(){}
-
-    public QuestsModel(String name, String difficulty, NinjaModel ninja){
-    this.name = name;
-    this.difficulty = difficulty;
-    };
-
-
-    public String getName(){
-        return name;
-    }
-
-    public void  SetName(String name){
-        this.name = name;
-    }
-
-    public String getDifficulty(){
-        return difficulty;
-    }
-
-    public void  SetDifficulty(String difficulty){
-        this.difficulty = difficulty;
-    }
-
-
 
 }

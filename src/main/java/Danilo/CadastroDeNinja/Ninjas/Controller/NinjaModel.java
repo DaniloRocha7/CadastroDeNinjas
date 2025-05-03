@@ -2,18 +2,27 @@ package Danilo.CadastroDeNinja.Ninjas.Controller;
 
 import Danilo.CadastroDeNinja.Quests.QuestsModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 //JPA = Java Persistence API
 @Entity
 @Table(name = "tb_Cadastro")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private String email;
+
     private int age;
 
 
@@ -22,40 +31,5 @@ public class NinjaModel {
     @JoinColumn(name = "Quest_id") // forering Key ou chave estrangeira
     private QuestsModel quests;
 
-
-
-    public NinjaModel(){
-
-    }
-
-    public NinjaModel(String name, String email,int age){
-        this.name = name;
-        this.email = email;
-        this.age = age;
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
+
