@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 
 //JPA = Java Persistence API
 @Entity
@@ -34,8 +36,8 @@ public class NinjaModel {
 
     //@ManyToOne - Um ninja tem uma unica missao
     @ManyToMany
-    @JoinColumn(name = "Quest_id") // forering Key ou chave estrangeira
-    private QuestsModel quests;
+    @JoinTable(name = "Quest_id") // forering Key ou chave estrangeira
+    private List<QuestsModel> quests;
 
 }
 
