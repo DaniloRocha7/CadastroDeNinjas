@@ -1,5 +1,6 @@
-package Danilo.CadastroDeNinja;
+package Danilo.CadastroDeNinja.Ninjas.Controller;
 
+import Danilo.CadastroDeNinja.Quests.QuestsModel;
 import jakarta.persistence.*;
 
 
@@ -15,6 +16,14 @@ public class NinjaModel {
     private String email;
     private int age;
 
+
+    //@ManyToOne - Um ninja tem uma unica missao
+    @ManyToMany
+    @JoinColumn(name = "Quest_id") // forering Key ou chave estrangeira
+    private QuestsModel quests;
+
+
+
     public NinjaModel(){
 
     }
@@ -23,6 +32,7 @@ public class NinjaModel {
         this.name = name;
         this.email = email;
         this.age = age;
+
     }
 
     public String getName() {
