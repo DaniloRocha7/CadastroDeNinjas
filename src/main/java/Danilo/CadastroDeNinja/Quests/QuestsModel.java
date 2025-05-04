@@ -1,6 +1,7 @@
 package Danilo.CadastroDeNinja.Quests;
 
 import Danilo.CadastroDeNinja.Ninjas.Controller.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class QuestsModel {
     private String difficulty;
 
     @OneToMany
+    @JsonIgnore
     private List<NinjaModel> ninjas;
 
 }

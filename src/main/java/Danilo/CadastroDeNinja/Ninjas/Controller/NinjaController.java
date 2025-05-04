@@ -3,9 +3,13 @@ package Danilo.CadastroDeNinja.Ninjas.Controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping
 public class NinjaController {
+
+    private NinjaService ninjaService;
 
 
     //C.R.U.D
@@ -18,29 +22,29 @@ public class NinjaController {
 
     //Monstrar todos os ninjas (READ)
     @PostMapping("/criar")
-    public  String criarNinja(){
-        return "Ninja criado";
+    public List<NinjaModel> listNinjas(){
+        return ninjaService.listNinjas();
     }
 
     //Mostrar todos por ninjas (READ)
-    @GetMapping("/todos")
-    public String monstrarTodosOsNinjas(){
-        return "Mostrar Ninja";
+    @GetMapping("/All")
+    public String showAllNinja(){
+        return "Show Ninja";
     }
 
     //Mostrar todos por id (READ)
-    @GetMapping("/todos")
-    public String mostrarTodosOsNinjasPorId(){
-        return "Mostrar Ninja por id";
+    @GetMapping("/all")
+    public String showAllNinjasById(){
+        return "Show Ninja by id";
     }
 
-    @PutMapping("/alterar")
-    public String alterarNinjaPorId(){
-        return "Alterar Ninja por id";
+    @PutMapping("/modify")
+    public String modifyNinjaById(){
+        return "modify Ninja by id";
     }
 
-    @DeleteMapping("/deletarID")
-    public String deletarNinjaPorId(){
-        return "Ninja deletado por id";
+    @DeleteMapping("/delete")
+    public String deleteNinjaById(){
+        return "Ninja delete by id";
     }
 }
